@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import Form from "./form";
-import CreateStuff from "./calculator";
 
 function handleRefresh() {
   // setLinks, setMessage, setTags
@@ -37,7 +36,9 @@ const App = () => {
 
   return (
     <div className="App">
-      <h1>Hello, World!</h1>
+      <div className="header">
+        <h1>CoD Calculator</h1>
+      </div>
       <Form />
       <h2>{message}</h2>
     </div>
