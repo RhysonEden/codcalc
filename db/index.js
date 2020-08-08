@@ -57,17 +57,34 @@ async function getUser({ username, password }) {
   }
 }
 
+// async function updateUser({ username, password }) {
+//   console.log("API USER UPDATE", "pword:", password, "user:", username);
+//   try {
+//     await client.query(
+//       `
+//         UPDATE users
+//         SET password="${password}"
+//         WHERE username="${username}";
+//       `
+//     );
+//   } catch (error) {
+//     console.log(error);
+//     throw error;
+//   }
+// }
+
 async function updateUser({ username, password }) {
   console.log("API USER UPDATE", "pword:", password, "user:", username);
   try {
     await client.query(
       `
         UPDATE users
-        SET password=${password}
-        WHERE username=${username};
+        SET password='${password}'
+        WHERE username='${username}';
       `
     );
   } catch (error) {
+    console.log(error);
     throw error;
   }
 }

@@ -20,6 +20,7 @@ function Header({ searchInput, setSearchInput }) {
           <div className="tb">
             <div className="td">
               <input
+                className="search"
                 value={searchInput}
                 onChange={(event) => {
                   setSearchInput(event.target.value);
@@ -49,7 +50,7 @@ function Header({ searchInput, setSearchInput }) {
               setShowModal(!showModal);
             }}
           >
-            Log in/Sign up!
+            Log in!
           </button>
         )}
         {user ? (

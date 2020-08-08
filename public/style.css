@@ -36,13 +36,19 @@ p {
   text-align: center;
   margin: 5px;
 }
-
+.search {
+  width: 350px;
+  text-align: center;
+  height: 30px;
+  border-radius: 500px;
+}
 .allco {
   border: 1px solid black;
   background: #fff957;
 }
 
 .logout {
+  padding: 10px;
   background-color: #89c403;
   border-radius: 10px;
   margin-left: 40px;
@@ -68,12 +74,9 @@ p {
   clear: both;
 }
 
-#footer {
-  height: 20px;
-  background: #ff9436;
-  border-radius: 10px;
-  border: 1px solid #eb8022;
-  margin: 5px;
+.create {
+  margin-bottom: 10px;
+  margin-top: 40px;
 }
 
 .submit,

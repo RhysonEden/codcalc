@@ -109,13 +109,18 @@ usersRouter.post("/update", async (req, res, next) => {
   console.log("User Update Route");
   try {
     const { username, password } = req.body;
+    console.log("line112", password);
+
     console.log("starting bcrypt", password);
     console.log("starting bcrypt", password);
-    bcrypt.hash(password, SALT_COUNT, async function (err, hashedPassword) {
-      const user = await updateUser({
-        username: username,
-        password: hashedPassword,
+    await new Promise((resolve, reject) => {
+      bcrypt.hash(password, SALT_COUNT, async function (err, hashedPassword) {
+        const user = await updateUser({
+          username: username,
+          password: hashedPassword,
+        });
       });
+      resolve();
     });
     res.send({ message: "Password Changed" });
   } catch (error) {

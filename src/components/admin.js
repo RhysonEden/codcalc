@@ -9,19 +9,19 @@ const Admin = () => {
 
   const [username, setUser2] = useState("");
   const [password2, setPassword2] = useState("");
-  const [email2, setEmail2] = useState("");
 
   const handleRegis = (event) => {
     event.preventDefault();
     registerUser(user, password, email);
     cancelCourse();
   };
+
   const handleUpdate = (event) => {
     event.preventDefault();
-    console.log(user, password);
-    userUpdate(username, password);
+    userUpdate(username, password2);
     cancelCourse();
   };
+
   const cancelCourse = () => {
     setUser("");
     setPassword("");
@@ -53,8 +53,8 @@ const Admin = () => {
   } else {
     return (
       <div className="page">
-        <form id="create">
-          <h2>Admin Page</h2>
+        <h2>Admin Page</h2>
+        <form className="create">
           <div>Create User</div>
           <input
             className="form-input"
@@ -81,7 +81,7 @@ const Admin = () => {
             Submit
           </button>
         </form>
-        <form id="create">
+        <form className="create">
           <div>Change Password</div>
           <input
             className="form-input"

@@ -57,7 +57,7 @@ async function createInitialUsers() {
     console.log("Starting to create users...");
     await new Promise((resolve, reject) => {
       console.log("here the user");
-      bcrypt.hash("bertie99", SALT_COUNT, async function (err, hashedPassword) {
+      bcrypt.hash("gft2020", SALT_COUNT, async function (err, hashedPassword) {
         const arman = await createUser({
           username: "David",
           password: hashedPassword,
@@ -69,7 +69,7 @@ async function createInitialUsers() {
     });
 
     await new Promise((resolve, reject) => {
-      bcrypt.hash("bertie99", SALT_COUNT, async function (err, hashedPassword) {
+      bcrypt.hash("gft2020", SALT_COUNT, async function (err, hashedPassword) {
         const james = await createUser({
           username: "James",
           password: hashedPassword,
@@ -79,9 +79,20 @@ async function createInitialUsers() {
         resolve();
       });
     });
+    await new Promise((resolve, reject) => {
+      bcrypt.hash("gft2020", SALT_COUNT, async function (err, hashedPassword) {
+        const katy = await createUser({
+          username: "Katy",
+          password: hashedPassword,
+          email: "test2@yahoo.com",
+          admin: false,
+        });
+        resolve();
+      });
+    });
 
     await new Promise((resolve, reject) => {
-      bcrypt.hash("bertie99", SALT_COUNT, async function (err, hashedPassword) {
+      bcrypt.hash("gft2020", SALT_COUNT, async function (err, hashedPassword) {
         const robin = await createUser({
           username: "Kevin",
           password: hashedPassword,
