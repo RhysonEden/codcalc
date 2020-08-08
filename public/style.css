@@ -8,26 +8,6 @@ body {
   color: red;
   font-size: x-large;
 }
-#linktag {
-  box-shadow: 0px 0px 0px 0px #3dc21b;
-  background-color: #44c767;
-  border-radius: 42px;
-  display: inline-block;
-  cursor: pointer;
-  color: #ffffff;
-  font-family: Arial;
-  font-size: 12px;
-  padding: 5px 10px;
-  text-decoration: none;
-  text-shadow: 3px 1px 0px #2f6627;
-}
-#linktag:hover {
-  background-color: #5cbf2a;
-}
-#linktag:active {
-  position: relative;
-  top: 1px;
-}
 
 p {
   padding: 10px;
@@ -57,19 +37,15 @@ p {
   margin: 5px;
 }
 
-#contentliquid {
-  float: left;
-  width: 100%;
-}
-
-#contentwrap {
-  width: 100%;
-  float: left;
-}
-
 .allco {
   border: 1px solid black;
   background: #fff957;
+}
+
+.logout {
+  background-color: #89c403;
+  border-radius: 10px;
+  margin-left: 40px;
 }
 
 .company {
@@ -81,7 +57,7 @@ p {
   grid-template-rows: 1fr 1fr;
   gap: 1px 1px;
   grid-template-areas: ". . ." ". . .";
-  grid-area: links;
+  /* grid-area: links; */
   text-align: center;
 }
 
@@ -178,6 +154,8 @@ p {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
+    flex-direction: row;
+
     justify-content: center;
     text-align: center;
     /* background: #ff6633; */
@@ -188,11 +166,24 @@ p {
   .header {
     display: flex;
     flex-wrap: wrap;
-    width: 97%;
-    height: 175px;
+    flex-direction: row;
+    width: 100%;
+    height: 250px;
     background: #ff6633;
     position: sticky;
     top: 0;
+  }
+
+  .userNameLogout,
+  .thecartbtn {
+    display: inline-flex;
+  }
+
+  .td,
+  .cod,
+  .userNameLogout,
+  .userNameLog {
+    width: 100%;
   }
 
   .form-input,

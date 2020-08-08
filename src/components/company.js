@@ -5,9 +5,7 @@ const Company = ({ searchInput }) => {
   const [companies, setCompany] = useState([]);
   const [message, setMessage] = useState("");
   const user = localStorage.getItem("user");
-  //   if (!user) {
-  //     alert("Please Log in to continue");
-  //   } else {
+
   useEffect(() => {
     getCompanies()
       .then((response) => {
@@ -18,8 +16,7 @@ const Company = ({ searchInput }) => {
         setMessage(error.message);
       });
   }, []);
-  //   }
-  console.log(companies);
+
   if (!user) {
     return <div className="pleaselogin">Please Log In To Continue</div>;
   } else {

@@ -36,6 +36,20 @@ export async function registerUser(username, password, email) {
   }
 }
 
+export async function userUpdate(username, password) {
+  console.log("update", username, password);
+  try {
+    const { data } = await axios.post("api/users/update", {
+      username,
+      password,
+    });
+    console.log(data);
+    return data;
+  } catch (error) {
+    throw error;
+  }
+}
+
 export async function getUserInfo() {
   try {
     const user = await axios.get("/api/users/getUserInfo", {

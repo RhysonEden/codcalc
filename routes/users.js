@@ -7,6 +7,7 @@ const {
   getUserByUsername,
   getUser,
   getAllUsers,
+  updateUser,
 } = require("../db");
 const SALT_COUNT = 10;
 
@@ -104,5 +105,21 @@ usersRouter.post("/register", async (req, res, next) => {
     next(error);
   }
 });
-
+usersRouter.post("/update", async (req, res, next) => {
+  console.log("User Update Route");
+  try {
+    const { username, password } = req.body;
+    console.log("starting bcrypt", password);
+    console.log("starting bcrypt", password);
+    bcrypt.hash(password, SALT_COUNT, async function (err, hashedPassword) {
+      const user = await updateUser({
+        username: username,
+        password: hashedPassword,
+      });
+    });
+    res.send({ message: "Password Changed" });
+  } catch (error) {
+    next(error);
+  }
+});
 module.exports = usersRouter;

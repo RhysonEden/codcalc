@@ -14,7 +14,7 @@ function Header({ searchInput, setSearchInput }) {
     <>
       {showModal && <Modal setUser={setUser} setShowModal={setShowModal} />}
       <div className="header">
-        <h1>CoD Calculator</h1>
+        <h1 className="cod">CoD Calculator</h1>
 
         <form method="get" action="">
           <div className="tb">
@@ -35,10 +35,12 @@ function Header({ searchInput, setSearchInput }) {
         <br />
         {user ? (
           <div className="userNameLogout">
-            <span className="userNameLog">Hello {user}!</span>
-            <button onClick={logout}>
-              <a href="/">Logout?</a>
-            </button>
+            <span className="userNameLog">
+              Hello {user}!
+              <button className="logout" onClick={logout}>
+                <a href="/">Logout?</a>
+              </button>
+            </span>
           </div>
         ) : (
           <button

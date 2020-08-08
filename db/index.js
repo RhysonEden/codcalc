@@ -22,7 +22,7 @@ async function createUser({ username, password, email, admin }) {
 
 async function getUserByUsername(username) {
   try {
-    console.log("firing getusername");
+    console.log("firing getusername", username);
     const { rows } = await client.query(
       `
       SELECT *
@@ -52,6 +52,21 @@ async function getUser({ username, password }) {
     const matchingPassword = await bcrypt.compareSync(password, user.password);
     if (!matchingPassword) return;
     return user;
+  } catch (error) {
+    throw error;
+  }
+}
+
+async function updateUser({ username, password }) {
+  console.log("API USER UPDATE", "pword:", password, "user:", username);
+  try {
+    await client.query(
+      `
+        UPDATE users
+        SET password=${password}
+        WHERE username=${username};
+      `
+    );
   } catch (error) {
     throw error;
   }
@@ -124,4 +139,5 @@ module.exports = {
   getUsersByID,
   getAllCompanies,
   getCompaniesById,
+  updateUser,
 };
