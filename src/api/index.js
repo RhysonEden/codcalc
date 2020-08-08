@@ -9,7 +9,7 @@ export async function loginUser(username, password) {
     console.log(data);
     localStorage.setItem("token", data.token);
     localStorage.setItem("user", data.user.username);
-    localStorage.setItem("seller", data.user.seller);
+    localStorage.setItem("admin", data.user.admin);
     localStorage.setItem("id", data.user.id);
     return data;
   } catch (error) {
@@ -19,6 +19,7 @@ export async function loginUser(username, password) {
 }
 
 export async function registerUser(username, password, email) {
+  console.log("user", username, password, email);
   try {
     const { data } = await axios.post("/api/users/register", {
       username,

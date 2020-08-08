@@ -20,17 +20,18 @@ async function createUser({ username, password, email, admin }) {
   }
 }
 
-async function getUserByUsername(userName) {
+async function getUserByUsername(username) {
   try {
-    console.log("firing");
+    console.log("firing getusername");
     const { rows } = await client.query(
       `
       SELECT *
       FROM users
       WHERE username = $1;
     `,
-      [userName]
+      [username]
     );
+    console.log("done");
     if (!rows || !rows.length) return null;
     const [user] = rows;
     return user;

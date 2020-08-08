@@ -78,6 +78,8 @@ usersRouter.post("/register", async (req, res, next) => {
         message: "Password Too Short!",
       });
     } else {
+      console.log("password = ", password);
+      console.log("starting bcrypt", password);
       bcrypt.hash(password, SALT_COUNT, async function (err, hashedPassword) {
         const user = await createUser({
           username,
@@ -85,6 +87,7 @@ usersRouter.post("/register", async (req, res, next) => {
           email,
           admin: false,
         });
+        console.log("bcrypt ending");
         if (err) {
           next(err);
         } else {

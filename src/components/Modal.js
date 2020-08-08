@@ -39,7 +39,7 @@ function Modal({ setShowModal, setUser }) {
       registerUser(username, password, email).then(() => {
         setUser(username);
         localStorage.setItem("user", username);
-        localStorage.setItem("seller", false);
+        localStorage.setItem("admin", false);
         cancelCourse();
       });
     } else {
