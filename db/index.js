@@ -4,14 +4,14 @@ const DB_URL = process.env.DATABASE_URL || `postgres://${DB_NAME}`;
 const client = new Client(DB_URL);
 const bcrypt = require("bcrypt");
 
-async function createUser({ username, password, email }) {
+async function createUser({ username, password, email, admin }) {
   try {
     const result = await client.query(
       `
-      INSERT INTO users(username, password, email)
-      VALUES ($1, $2, $3);
+      INSERT INTO users(username, password, email, admin)
+      VALUES ($1, $2, $3, $4);
     `,
-      [username, password, email]
+      [username, password, email, admin]
     );
 
     return result;
@@ -66,6 +66,35 @@ async function getAllUsers() {
   return rows;
 }
 
+async function getAllCompanies() {
+  const { rows } = await client.query(
+    `SELECT *
+    FROM company;
+  `
+  );
+
+  return rows;
+}
+
+async function getCompaniesById(id) {
+  try {
+    const {
+      rows: [user],
+    } = await client.query(
+      `
+    SELECT *
+    FROM company
+    WHERE id=$1;
+    `,
+      [id]
+    );
+    console.log("user", user);
+    return user;
+  } catch (error) {
+    throw error;
+  }
+}
+
 async function getUsersByID(id) {
   try {
     const {
@@ -92,4 +121,6 @@ module.exports = {
   getUser,
   getAllUsers,
   getUsersByID,
+  getAllCompanies,
+  getCompaniesById,
 };

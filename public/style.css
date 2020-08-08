@@ -4,6 +4,10 @@ body {
   color: #333;
 }
 
+.pleaselogin {
+  color: red;
+  font-size: x-large;
+}
 #linktag {
   box-shadow: 0px 0px 0px 0px #3dc21b;
   background-color: #44c767;
@@ -43,7 +47,7 @@ p {
 
 .header {
   width: 100%;
-  height: 125px;
+  height: 200px;
   background: #ff6633;
   border-radius: 10px;
   border: 1px solid #eb521f;
@@ -63,10 +67,14 @@ p {
   float: left;
 }
 
-.links {
+.allco {
+  border: 1px solid black;
   background: #fff957;
+}
+
+.company {
+  background: white;
   border-radius: 10px;
-  /* border: 1px solid black; */
   margin: 5px;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
@@ -92,12 +100,15 @@ p {
   margin: 5px;
 }
 
-.submit {
+.submit,
+.thecartbtn,
+.userNameLogout > button,
+.account {
+  border: 1px solid black;
   box-shadow: inset 0px 1px 0px 0px #a4e271;
   background: linear-gradient(to bottom, #89c403 5%, #77a809 100%);
   background-color: #89c403;
   border-radius: 6px;
-  border: 1px solid #74b807;
   display: inline-block;
   cursor: pointer;
   color: #ffffff;
@@ -117,57 +128,172 @@ p {
   top: 1px;
 }
 
-#linkbutton {
-  box-shadow: inset 0px 1px 7px 0px #9acc85;
-  background: linear-gradient(to bottom, #74ad5a 5%, #68a54b 100%);
-  background-color: #74ad5a;
-  border: 6px solid #3b6e22;
-  display: inline-block;
-  cursor: pointer;
-  color: #ffffff;
-  font-family: Arial;
-  font-size: 13px;
-  font-weight: bold;
-  padding: 6px 12px;
-  text-decoration: none;
-}
-#linkbutton:hover {
-  background: linear-gradient(to bottom, #68a54b 5%, #74ad5a 100%);
-  background-color: #68a54b;
-}
-#linkbutton:active {
-  position: relative;
-  top: 1px;
-}
+/* PHONE */
 
 @media only screen and (max-device-width: 480px) {
-  .header {
+  .miscitems {
+    width: 15px;
+  }
+  .company {
+    background-color: white;
+    display: flex;
+    flex-wrap: wrap;
     width: 100%;
-    height: 250px;
-    background: #ff6633;
-    border-radius: 10px;
-    border: 1px solid #eb521f;
     align-items: center;
     justify-content: center;
     text-align: center;
+  }
+  .allco {
+    display: flex;
+    flex-wrap: wrap;
+    background: #fff957;
+    border: 1px solid black;
+    width: 100%;
+    margin-top: 1px;
+    margin-bottom: 1px;
+  }
+  .qty-minus {
+    margin: 10px;
+    border: 1px solid black;
+    border-radius: 500px;
+  }
+
+  .check {
+    margin: 6px;
+  }
+
+  .numericgloves,
+  .numericrags {
+    width: 75px;
+  }
+  .app {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    /* background: #ff6633; */
+  }
+  body {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    /* background: #ff6633; */
+  }
+  .root {
+    background-color: white;
+  }
+  .header {
+    display: flex;
+    flex-wrap: wrap;
+    width: 97%;
+    height: 175px;
+    background: #ff6633;
+    position: sticky;
+    top: 0;
+  }
+
+  .form-input,
+  .form-input-last {
+    width: 100%;
+    height: 75px;
+    display: flex;
+    flex-wrap: wrap;
+  }
+  /* .form-input-last {
+    margin-bottom: 200px;
+    padding-bottom: 200px;
+  } */
+  .ps {
+    width: 100%;
+  }
+  .submit {
+    border: 1px solid black;
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: 140px;
+    /* flex-direction: column; */
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+  }
+  .userNameLog {
+    background: #fff957;
+    margin: 25px;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+  }
+  button {
     margin: 5px;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+  }
+
+  .account {
+    margin-left: 90px;
+    margin-right: 90px;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+  }
+  .form-input {
+    border: 1px solid black;
+    margin-top: 1px;
+    margin-bottom: 1px;
+  }
+}
+
+/* TABLET */
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) and (-webkit-min-device-pixel-ratio: 1) {
+  .app {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    /* background: #ff6633; */
+  }
+  body {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    /* background: #ff6633; */
+  }
+  .header {
+    display: flex;
+    flex-wrap: wrap;
+    width: 97%;
+    height: 100px;
+    background: #ff6633;
   }
 
   .form-input {
     width: 100%;
-  }
-  .links {
-    background: #fff957;
-    border-radius: 10px;
-    border: 1px solid black;
-    margin: 5px;
     display: flex;
     flex-wrap: wrap;
-    width: 100%;
-    flex: 0 0 auto;
-    text-align: center;
   }
   .ps {
     width: 100%;
+  }
+  .submit {
+    border: 1px solid black;
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: 140px;
+    /* flex-direction: column; */
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+  }
+  .form-input {
+    border: 1px solid black;
+    margin-top: 1px;
+    margin-bottom: 1px;
   }
 }

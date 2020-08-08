@@ -49,6 +49,9 @@ apiRouter.use(async (req, res, next) => {
 const usersRouter = require("./users");
 apiRouter.use("/users", usersRouter);
 
+const companyRouter = require("./company");
+apiRouter.use("/company", companyRouter);
+
 apiRouter.use((err, req, res, next) => {
   res.status(500).json({
     message: err.message,

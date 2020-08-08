@@ -1,47 +1,34 @@
 import React, { useState, useEffect } from "react";
 import Form from "./form";
-
-function handleRefresh() {
-  // setLinks, setMessage, setTags
-  // return function () {
-  //   getSomething()
-  //     .then((response) => {
-  //       setLinks(response.allLinks);
-  //     })
-  //     .catch((error) => {
-  //       setMessage(error.message);
-  //     });
-  //   getSomethingElse()
-  //     .then((response) => {
-  //       setTags(response.allTags);
-  //     })
-  //     .catch((error) => {
-  //       setMessage(error.message);
-  //     });
-  // };
-}
+import Company from "./company";
+import Header from "./Header";
+import { BrowserRouter as Brouter, Switch, Route } from "react-router-dom";
 
 const App = () => {
-  const [message, setMessage] = useState("");
-
-  // useEffect(() => {
-  //   CreateStuff()
-  //     .then((response) => {
-  //       setMessage(response.message);
-  //     })
-  //     .catch((error) => {
-  //       setMessage(error.message);
-  //     });
-  // });
+  const [searchInput, setSearchInput] = useState("");
 
   return (
-    <div className="App">
-      <div className="header">
-        <h1>CoD Calculator</h1>
+    <Brouter>
+      <div className="App">
+        <Header searchInput={searchInput} setSearchInput={setSearchInput} />
+        <Switch>
+          <Form
+            path="/calculator"
+            exact
+            component={Form}
+            searchInput={searchInput}
+            setSearchInput={setSearchInput}
+          />
+          <Company
+            path="/company"
+            exact
+            component={Company}
+            searchInput={searchInput}
+            setSearchInput={setSearchInput}
+          />
+        </Switch>{" "}
       </div>
-      <Form />
-      <h2>{message}</h2>
-    </div>
+    </Brouter>
   );
 };
 

@@ -2,7 +2,12 @@ const apiRouter = require("express");
 const usersRouter = apiRouter.Router();
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcrypt");
-const { createUser, getUserByUsername, getUser } = require("../db");
+const {
+  createUser,
+  getUserByUsername,
+  getUser,
+  getAllUsers,
+} = require("../db");
 const SALT_COUNT = 10;
 
 usersRouter.get("/", async (req, res, next) => {
@@ -78,7 +83,7 @@ usersRouter.post("/register", async (req, res, next) => {
           username,
           password: hashedPassword,
           email,
-          seller: false,
+          admin: false,
         });
         if (err) {
           next(err);
