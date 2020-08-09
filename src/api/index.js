@@ -8,7 +8,7 @@ export async function loginUser(username, password) {
     });
     localStorage.setItem("token", data.token);
     localStorage.setItem("user", data.user.username);
-    localStorage.setItem("admin", data.user.admin);
+    localStorage.setItem("admin", JSON.stringify(data.user.admin));
     localStorage.setItem("id", data.user.id);
     return data;
   } catch (error) {

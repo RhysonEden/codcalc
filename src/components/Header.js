@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import Modal from "./Modal";
+import React, { useState, useEffect } from "react";
+import Modal from "./Login";
 
 function logout() {
   localStorage.clear();
@@ -9,6 +9,14 @@ function logout() {
 function Header({ searchInput, setSearchInput }) {
   const [showModal, setShowModal] = useState(false);
   const [user, setUser] = React.useState(localStorage.getItem("user"));
+  const main = window.localStorage.getItem("admin");
+  const [admin, setAdmin] = useState(main);
+
+  console.log(admin);
+
+  useEffect(() => {
+    setAdmin(main);
+  });
 
   return (
     <>
@@ -44,13 +52,8 @@ function Header({ searchInput, setSearchInput }) {
             </span>
           </div>
         ) : (
-          <button
-            className="account"
-            onClick={() => {
-              setShowModal(!showModal);
-            }}
-          >
-            Log in!
+          <button className="account">
+            <a href="/login">Log in!</a>
           </button>
         )}
         {user ? (
@@ -60,6 +63,9 @@ function Header({ searchInput, setSearchInput }) {
             </button>
             <button className="thecartbtn">
               <a href="/calculator">Calculator</a>
+            </button>
+            <button className="thecartbtn">
+              <a href="/">Main</a>
             </button>
           </>
         ) : (

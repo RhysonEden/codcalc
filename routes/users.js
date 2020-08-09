@@ -80,8 +80,6 @@ usersRouter.post("/register", async (req, res, next) => {
         message: "Password Too Short!",
       });
     } else {
-      "password = ", password;
-      "starting bcrypt", password;
       bcrypt.hash(password, SALT_COUNT, async function (err, hashedPassword) {
         const user = await createUser({
           username,
@@ -110,10 +108,6 @@ usersRouter.post("/update", async (req, res, next) => {
   ("User Update Route");
   try {
     const { username, password } = req.body;
-    "line112", password;
-
-    "starting bcrypt", password;
-    "starting bcrypt", password;
     await new Promise((resolve, reject) => {
       bcrypt.hash(password, SALT_COUNT, async function (err, hashedPassword) {
         const user = await updateUser({
@@ -138,7 +132,7 @@ usersRouter.post("/admin", async (req, res, next) => {
       username: username,
       admin: admin,
     });
-    res.send({ message: "Password Changed" });
+    res.send({ message: "Admin Updated" });
   } catch (error) {
     next(error);
   }

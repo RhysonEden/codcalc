@@ -22,7 +22,6 @@ async function createUser({ username, password, email, admin }) {
 
 async function getUserByUsername(username) {
   try {
-    "firing getusername", username;
     const { rows } = await client.query(
       `
       SELECT *
@@ -41,7 +40,6 @@ async function getUserByUsername(username) {
 }
 
 async function getUser({ username, password }) {
-  ("running");
   if (!username || !password) {
     return;
   }
@@ -57,24 +55,7 @@ async function getUser({ username, password }) {
   }
 }
 
-// async function updateUser({ username, password }) {
-//   ("API USER UPDATE", "pword:", password, "user:", username);
-//   try {
-//     await client.query(
-//       `
-//         UPDATE users
-//         SET password="${password}"
-//         WHERE username="${username}";
-//       `
-//     );
-//   } catch (error) {
-//     (error);
-//     throw error;
-//   }
-// }
-
 async function updateUser({ username, password }) {
-  "API USER UPDATE", "pword:", password, "user:", username;
   try {
     await client.query(
       `
@@ -90,7 +71,6 @@ async function updateUser({ username, password }) {
 }
 
 async function adminUpdate({ username, admin }) {
-  "API USER UPDATE", "admin:", admin, "user:", username;
   try {
     await client.query(
       `

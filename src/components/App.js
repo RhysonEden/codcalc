@@ -3,6 +3,7 @@ import Form from "./form";
 import Company from "./company";
 import Header from "./Header";
 import Admin from "./admin";
+import Login from "./Login";
 import { BrowserRouter as Brouter, Switch } from "react-router-dom";
 
 const App = () => {
@@ -14,6 +15,7 @@ const App = () => {
         <div className="App">
           <Header searchInput={searchInput} setSearchInput={setSearchInput} />
           <Switch>
+            <Login path="/login" exact component={Login} />
             <Form
               path="/calculator"
               exact
@@ -38,6 +40,7 @@ const App = () => {
         <div className="App">
           <Header searchInput={searchInput} setSearchInput={setSearchInput} />
           <Switch>
+            <Admin path="/" exact component={Admin} />
             <Form
               path="/calculator"
               exact
@@ -52,7 +55,6 @@ const App = () => {
               searchInput={searchInput}
               setSearchInput={setSearchInput}
             />
-            <Admin path="/" exact component={Admin} />
           </Switch>{" "}
         </div>
       </Brouter>

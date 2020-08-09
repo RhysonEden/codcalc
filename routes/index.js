@@ -15,7 +15,6 @@ apiRouter.use(async (req, res, next) => {
   const auth = req.header("Authorization");
 
   if (!auth) {
-    // nothing to see here
     next();
   } else if (auth.startsWith(prefix)) {
     const token = auth.slice(prefix.length);
@@ -42,9 +41,6 @@ apiRouter.use(async (req, res, next) => {
     });
   }
 });
-
-// const prodRouter = require("./product");
-// apiRouter.use("/products", prodRouter);
 
 const usersRouter = require("./users");
 apiRouter.use("/users", usersRouter);
