@@ -8,6 +8,7 @@ const {
   getUser,
   getAllUsers,
   updateUser,
+  adminUpdate,
 } = require("../db");
 const SALT_COUNT = 10;
 
@@ -22,7 +23,7 @@ usersRouter.get("/", async (req, res, next) => {
 
 usersRouter.get("/getUserInfo", async (req, res, next) => {
   try {
-    console.log(req.user);
+    req.user;
     if (req.user) {
       res.send({ user: req.user });
     }
@@ -33,7 +34,7 @@ usersRouter.get("/getUserInfo", async (req, res, next) => {
 
 usersRouter.post("/login", async (req, res, next) => {
   const { username, password } = req.body;
-  console.log(req.body);
+  req.body;
 
   if (!username || !password) {
     next({
@@ -44,7 +45,7 @@ usersRouter.post("/login", async (req, res, next) => {
 
   try {
     const user = await getUser({ username, password });
-    console.log(process.env.JWT_SECRET);
+    process.env.JWT_SECRET;
     if (!user) {
       next({
         name: "WrongUserNameOrPassword",
@@ -59,7 +60,7 @@ usersRouter.post("/login", async (req, res, next) => {
       res.send({ message: "you're logged in!", token, user });
     }
   } catch (error) {
-    console.log(error);
+    error;
     next(error);
   }
 });
@@ -79,8 +80,8 @@ usersRouter.post("/register", async (req, res, next) => {
         message: "Password Too Short!",
       });
     } else {
-      console.log("password = ", password);
-      console.log("starting bcrypt", password);
+      "password = ", password;
+      "starting bcrypt", password;
       bcrypt.hash(password, SALT_COUNT, async function (err, hashedPassword) {
         const user = await createUser({
           username,
@@ -88,7 +89,7 @@ usersRouter.post("/register", async (req, res, next) => {
           email,
           admin: false,
         });
-        console.log("bcrypt ending");
+        ("bcrypt ending");
         if (err) {
           next(err);
         } else {
@@ -106,13 +107,13 @@ usersRouter.post("/register", async (req, res, next) => {
   }
 });
 usersRouter.post("/update", async (req, res, next) => {
-  console.log("User Update Route");
+  ("User Update Route");
   try {
     const { username, password } = req.body;
-    console.log("line112", password);
+    "line112", password;
 
-    console.log("starting bcrypt", password);
-    console.log("starting bcrypt", password);
+    "starting bcrypt", password;
+    "starting bcrypt", password;
     await new Promise((resolve, reject) => {
       bcrypt.hash(password, SALT_COUNT, async function (err, hashedPassword) {
         const user = await updateUser({
@@ -121,6 +122,21 @@ usersRouter.post("/update", async (req, res, next) => {
         });
       });
       resolve();
+    });
+    res.send({ message: "Password Changed" });
+  } catch (error) {
+    next(error);
+  }
+});
+
+usersRouter.post("/admin", async (req, res, next) => {
+  ("User Update Route");
+  try {
+    const { username, admin } = req.body;
+
+    const user = await adminUpdate({
+      username: username,
+      admin: admin,
     });
     res.send({ message: "Password Changed" });
   } catch (error) {

@@ -1,6 +1,5 @@
-import React, { useState, userForm } from "react";
+import React, { useState } from "react";
 import moment from "moment";
-import NumericInput from "react-numeric-input";
 
 const Form = () => {
   const [labor, setLabor] = useState("");
@@ -13,7 +12,7 @@ const Form = () => {
   const user = localStorage.getItem("user");
 
   const cancelCourse = () => {
-    console.log("canceCourse Link 10 form.JS");
+    ("canceCourse Link 10 form.JS");
     setLabor("");
     setMileage("");
     setPartPrice("");

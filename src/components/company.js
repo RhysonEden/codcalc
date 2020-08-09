@@ -3,17 +3,16 @@ import { getCompanies } from "../api/company";
 
 const Company = ({ searchInput }) => {
   const [companies, setCompany] = useState([]);
-  const [message, setMessage] = useState("");
   const user = localStorage.getItem("user");
 
   useEffect(() => {
     getCompanies()
       .then((response) => {
         setCompany(response.data.company);
-        console.log(response.data.company);
+        response.data.company;
       })
       .catch((error) => {
-        setMessage(error.message);
+        error.message;
       });
   }, []);
 

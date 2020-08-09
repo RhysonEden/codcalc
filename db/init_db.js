@@ -40,12 +40,12 @@ async function createTables() {
 
 async function dropTables() {
   try {
-    console.log("Starting to drop tables...");
+    ("Starting to drop tables...");
     await client.query(`
       DROP TABLE IF EXISTS users;
       `);
 
-    console.log("Finished dropping tables!");
+    ("Finished dropping tables!");
   } catch (error) {
     console.error("Error dropping tables!");
     throw error;
@@ -54,9 +54,9 @@ async function dropTables() {
 
 async function createInitialUsers() {
   try {
-    console.log("Starting to create users...");
+    ("Starting to create users...");
     await new Promise((resolve, reject) => {
-      console.log("here the user");
+      ("here the user");
       bcrypt.hash("gft2020", SALT_COUNT, async function (err, hashedPassword) {
         const arman = await createUser({
           username: "David",
@@ -99,12 +99,12 @@ async function createInitialUsers() {
           email: "test3@yahoo.com",
           admin: true,
         });
-        console.log(robin);
+        robin;
         resolve();
       });
     });
 
-    console.log("Finished creating users!");
+    ("Finished creating users!");
   } catch (error) {
     console.error("Error creating users!");
     throw error;
@@ -114,7 +114,6 @@ async function createInitialUsers() {
 async function rebuildDB() {
   try {
     client.connect();
-    console.log;
   } catch (error) {
     throw error;
   }
@@ -131,10 +130,10 @@ async function testDB() {
     const userJames = await getUserByUsername("james");
     const userRobin = await getUserByUsername("robin");
     const users = await getAllUsers();
-    console.log("username", userArman, userJames, userRobin);
-    console.log("all users", users);
-    console.log("#200=", comp200);
-    console.log("#100=", comp100);
+    "username", userArman, userJames, userRobin;
+    "all users", users;
+    "#200=", comp200;
+    "#100=", comp100;
   } catch (error) {
     console.error(error);
   } finally {

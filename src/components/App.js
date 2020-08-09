@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import Form from "./form";
 import Company from "./company";
 import Header from "./Header";
 import Admin from "./admin";
-import { BrowserRouter as Brouter, Switch, Route } from "react-router-dom";
+import { BrowserRouter as Brouter, Switch } from "react-router-dom";
 
 const App = () => {
   const [searchInput, setSearchInput] = useState("");

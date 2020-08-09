@@ -22,7 +22,7 @@ async function createUser({ username, password, email, admin }) {
 
 async function getUserByUsername(username) {
   try {
-    console.log("firing getusername", username);
+    "firing getusername", username;
     const { rows } = await client.query(
       `
       SELECT *
@@ -31,7 +31,7 @@ async function getUserByUsername(username) {
     `,
       [username]
     );
-    console.log("done");
+    ("done");
     if (!rows || !rows.length) return null;
     const [user] = rows;
     return user;
@@ -41,7 +41,7 @@ async function getUserByUsername(username) {
 }
 
 async function getUser({ username, password }) {
-  console.log("running");
+  ("running");
   if (!username || !password) {
     return;
   }
@@ -58,7 +58,7 @@ async function getUser({ username, password }) {
 }
 
 // async function updateUser({ username, password }) {
-//   console.log("API USER UPDATE", "pword:", password, "user:", username);
+//   ("API USER UPDATE", "pword:", password, "user:", username);
 //   try {
 //     await client.query(
 //       `
@@ -68,13 +68,13 @@ async function getUser({ username, password }) {
 //       `
 //     );
 //   } catch (error) {
-//     console.log(error);
+//     (error);
 //     throw error;
 //   }
 // }
 
 async function updateUser({ username, password }) {
-  console.log("API USER UPDATE", "pword:", password, "user:", username);
+  "API USER UPDATE", "pword:", password, "user:", username;
   try {
     await client.query(
       `
@@ -84,7 +84,23 @@ async function updateUser({ username, password }) {
       `
     );
   } catch (error) {
-    console.log(error);
+    error;
+    throw error;
+  }
+}
+
+async function adminUpdate({ username, admin }) {
+  "API USER UPDATE", "admin:", admin, "user:", username;
+  try {
+    await client.query(
+      `
+        UPDATE users
+        SET admin='${admin}'
+        WHERE username='${username}';
+      `
+    );
+  } catch (error) {
+    error;
     throw error;
   }
 }
@@ -121,7 +137,7 @@ async function getCompaniesById(id) {
     `,
       [id]
     );
-    console.log("user", user);
+    "user", user;
     return user;
   } catch (error) {
     throw error;
@@ -140,7 +156,7 @@ async function getUsersByID(id) {
     `,
       [id]
     );
-    console.log("user", user);
+    "user", user;
     return user;
   } catch (error) {
     throw error;
@@ -157,4 +173,5 @@ module.exports = {
   getAllCompanies,
   getCompaniesById,
   updateUser,
+  adminUpdate,
 };

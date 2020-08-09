@@ -1,14 +1,17 @@
-import React, { useState, useEffect } from "react";
-import { registerUser, userUpdate } from "../api";
+import React, { useState } from "react";
+import { registerUser, userUpdate, adminUpdate } from "../api";
+import Checkbox from "./checkbox";
 
 const Admin = () => {
   const main = localStorage.getItem("admin");
   const [user, setUser] = useState("");
   const [password, setPassword] = useState("");
   const [email, setEmail] = useState("");
-
+  const [checkedOne, setCheckedOne] = useState(false);
+  const updateOne = () => setCheckedOne(!checkedOne);
   const [username, setUser2] = useState("");
   const [password2, setPassword2] = useState("");
+  const [adminname, setUser3] = useState("");
 
   const handleRegis = (event) => {
     event.preventDefault();
@@ -22,14 +25,28 @@ const Admin = () => {
     cancelCourse();
   };
 
+  const handleAdmin = (event) => {
+    event.preventDefault();
+    adminUpdate(adminname, checkedOne);
+    checkedOne, adminname;
+    cancelCourse();
+  };
   const cancelCourse = () => {
     setUser("");
+    setUser2("");
+    setUser3("");
     setPassword("");
     setEmail("");
+    setCheckedOne(false);
+    setPassword2("");
   };
 
   const changeUser2 = (event) => {
     setUser2(event.target.value);
+  };
+
+  const changeUser3 = (event) => {
+    setUser3(event.target.value);
   };
 
   const changePassword2 = (event) => {
@@ -98,6 +115,25 @@ const Admin = () => {
             onChange={changePassword2}
           ></input>
           <button className="submit" onClick={handleUpdate}>
+            Submit
+          </button>
+        </form>
+        <form className="create">
+          <div>Admin Settings</div>
+          <input
+            className="form-input"
+            id="name"
+            placeholder="Enter User's Name"
+            value={adminname}
+            onChange={changeUser3}
+          ></input>
+          <Checkbox
+            name="a"
+            label="Set Admin"
+            checked={checkedOne}
+            onChange={updateOne}
+          />
+          <button className="submit" onClick={handleAdmin}>
             Submit
           </button>
         </form>

@@ -8,7 +8,7 @@ export default function Form() {
   const [finalRate, setFinalRate] = useState("");
 
   const cancelCourse = () => {
-    console.log("canceCourse Link 10 form.JS");
+    ("canceCourse Link 10 form.JS");
     setLabor("");
     setMileage("");
     setPartPrice("");

@@ -22,14 +22,14 @@ apiRouter.use(async (req, res, next) => {
 
     try {
       const parsedToken = jwt.verify(token, JWT_SECRET);
-      console.log("parsed", parsedToken);
+      "parsed", parsedToken;
 
       const id = parsedToken && parsedToken.id;
-      console.log(id);
-      console.log(getUsersByID);
+      id;
+      getUsersByID;
       if (id) {
         req.user = await getUsersByID(id);
-        console.log(req.user);
+        req.user;
         next();
       }
     } catch (error) {
