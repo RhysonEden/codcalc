@@ -28,7 +28,6 @@ const Admin = () => {
   const handleAdmin = (event) => {
     event.preventDefault();
     adminUpdate(adminname, checkedOne);
-    checkedOne, adminname;
     cancelCourse();
   };
   const cancelCourse = () => {

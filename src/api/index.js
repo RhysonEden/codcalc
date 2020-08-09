@@ -6,27 +6,23 @@ export async function loginUser(username, password) {
       username,
       password,
     });
-    data;
     localStorage.setItem("token", data.token);
     localStorage.setItem("user", data.user.username);
     localStorage.setItem("admin", data.user.admin);
     localStorage.setItem("id", data.user.id);
     return data;
   } catch (error) {
-    error;
     throw error;
   }
 }
 
 export async function registerUser(username, password, email) {
-  "user", username, password, email;
   try {
     const { data } = await axios.post("/api/users/register", {
       username,
       password,
       email,
     });
-    data;
     localStorage.setItem("token", data.token);
     localStorage.setItem("user", data.user.username);
     localStorage.setItem("id", data.user.id);
@@ -37,13 +33,11 @@ export async function registerUser(username, password, email) {
 }
 
 export async function userUpdate(username, password) {
-  "update", username, password;
   try {
     const { data } = await axios.post("api/users/update", {
       username,
       password,
     });
-    data;
     return data;
   } catch (error) {
     throw error;
@@ -51,13 +45,11 @@ export async function userUpdate(username, password) {
 }
 
 export async function adminUpdate(username, admin) {
-  "update", username, admin;
   try {
     const { data } = await axios.post("api/users/admin", {
       username,
       admin,
     });
-    data;
     return data;
   } catch (error) {
     throw error;

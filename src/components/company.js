@@ -9,10 +9,9 @@ const Company = ({ searchInput }) => {
     getCompanies()
       .then((response) => {
         setCompany(response.data.company);
-        response.data.company;
       })
       .catch((error) => {
-        error.message;
+        console.log(error.message);
       });
   }, []);
 
