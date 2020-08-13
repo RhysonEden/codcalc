@@ -2,6 +2,9 @@ body {
   font-family: Verdana, Arial, Helvetica, sans-serif;
   font-size: 13px;
   color: #333;
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
 }
 
 /* body {
@@ -111,17 +114,29 @@ p {
   position: relative;
   top: 1px;
 } */
+
+.buttonz {
+  width: 100%;
+}
+.makethataccount,
+.fullwidth {
+  width: 100%;
+}
 .header {
   /* width: 150%; */
-  display: flex;
-  flex-wrap: wrap;
+  /* display: flex;
+  flex-wrap: wrap; */
   height: 200px;
   background: #ff6633;
   border-radius: 10px;
-  border: 1px solid #eb521f;
+  /* border: 1px solid #eb521f; */
   align-items: center;
   justify-content: center;
   text-align: center;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  border: 5px solid black;
   /* margin: 5px; */
 }
 .logout {
@@ -137,7 +152,6 @@ p {
   background: linear-gradient(to bottom, #89c403 5%, #77a809 100%);
   background-color: #89c403;
   border-radius: 6px;
-  display: inline-block;
   cursor: pointer;
   color: #ffffff;
   font-family: Arial;
@@ -147,15 +161,24 @@ p {
   text-decoration: none;
   text-shadow: 0px 1px 0px #528009;
 }
+.body,
+.page,
+.name,
+.address,
+.phone {
+  width: 100%;
+  /* border: 50px solid black */
+}
 
 .miscitems {
   width: 15px;
 }
 .company {
+  border: 10px solid black;
   background-color: white;
   display: flex;
   flex-wrap: wrap;
-  width: 100%;
+  /* width: 100%; */
   align-items: center;
   justify-content: center;
   text-align: center;
@@ -165,14 +188,12 @@ p {
   flex-wrap: wrap;
   background: #fff957;
   border: 1px solid black;
-  width: 100%;
+  /* width: auto; */
   margin-top: 1px;
   margin-bottom: 1px;
 }
 .qty-minus {
   margin: 10px;
-  border: 1px solid black;
-  border-radius: 500px;
 }
 
 .check {
@@ -245,7 +266,7 @@ body {
   border: 1px solid black;
   display: flex;
   flex-wrap: wrap;
-  margin-left: 140px;
+  margin-left: 45%;
   /* flex-direction: column; */
   justify-content: center;
   text-align: center;
@@ -334,8 +355,6 @@ button {
   }
   .qty-minus {
     margin: 10px;
-    border: 1px solid black;
-    border-radius: 500px;
   }
 
   .check {

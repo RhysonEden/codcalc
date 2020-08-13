@@ -19,7 +19,7 @@ const Company = ({ searchInput }) => {
     return <div className="pleaselogin">Please Log In To Continue</div>;
   } else {
     return (
-      <div className="company">
+      <div className="page">
         {companies
           .filter((company) => {
             const trimmedSearchInput = searchInput.toLowerCase();
@@ -33,11 +33,13 @@ const Company = ({ searchInput }) => {
           })
           .map((company, index) => (
             <div className="allco">
-              <div id={index}>Name:{company.cusname}</div>
+              <div id={index} className="name">
+                Name:{company.cusname}
+              </div>
               <br />
-              <div>Address:{company.address}</div>
+              <div className="address">Address:{company.address}</div>
               <br />
-              <div>Phone:{company.phone}</div> <br />
+              <div className="phone">Phone:{company.phone}</div> <br />
             </div>
           ))}
       </div>

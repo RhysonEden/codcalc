@@ -24,49 +24,55 @@ function Header({ searchInput, setSearchInput }) {
       <div className="header">
         <h1 className="cod">CoD Calculator</h1>
 
-        <form method="get" action="">
-          <div className="tb">
-            <div className="td">
-              <input
-                className="search"
-                value={searchInput}
-                onChange={(event) => {
-                  setSearchInput(event.target.value);
-                }}
-                type="text"
-                placeholder="Search CoD customers"
-                required
-              />
-            </div>
-            <div className="td" id="s-cover"></div>
-          </div>
-        </form>
         <br />
         {user ? (
-          <div className="userNameLogout">
-            <span className="userNameLog">
-              Hello {user}!
-              <button className="logout" onClick={logout}>
-                <a href="/">Logout?</a>
-              </button>
-            </span>
-          </div>
+          <>
+            <div className="userNameLogout">
+              <span className="userNameLog">
+                Hello {user}!
+                <button className="logout" onClick={logout}>
+                  <a href="/">Logout?</a>
+                </button>
+              </span>
+            </div>
+          </>
         ) : (
-          <button className="account">
-            <a href="/login">Log in!</a>
-          </button>
+          <div className="fullwidth">
+            <button className="account">
+              <a href="/login">Log in!</a>
+            </button>
+          </div>
         )}
         {user ? (
           <>
-            <button className="thecartbtn">
-              <a href="/company">CoD customers</a>
-            </button>
-            <button className="thecartbtn">
-              <a href="/calculator">Calculator</a>
-            </button>
-            <button className="thecartbtn">
-              <a href="/">Main</a>
-            </button>
+            <form method="get" action="">
+              <div className="tb">
+                <div className="td">
+                  <input
+                    className="search"
+                    value={searchInput}
+                    onChange={(event) => {
+                      setSearchInput(event.target.value);
+                    }}
+                    type="text"
+                    placeholder="Search CoD customers"
+                    required
+                  />
+                </div>
+                <div className="td" id="s-cover"></div>
+              </div>
+            </form>
+            <div className="buttonz">
+              <button className="thecartbtn">
+                <a href="/company">CoD customers</a>
+              </button>
+              <button className="thecartbtn">
+                <a href="/calculator">Calculator</a>
+              </button>
+              <button className="thecartbtn">
+                <a href="/">Main</a>
+              </button>
+            </div>
           </>
         ) : (
           <div className="makethataccount">
